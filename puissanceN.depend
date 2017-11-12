@@ -1,0 +1,624 @@
+# depslib dependency file v1.0
+1510417624 source:/home/us3r/devel/Candc++/puissanceN/game.cpp
+	<stdio.h>
+	<stdlib.h>
+	"game.h"
+	"video.h"
+	<SDL_events.h>
+
+1510416998 /home/us3r/devel/Candc++/puissanceN/game.h
+
+1510340058 /home/us3r/devel/Candc++/puissanceN/video.h
+	"SDL.h"
+
+1459864490 /usr/include/root/TApplication.h
+	"TObject.h"
+	"TQObject.h"
+	"TApplicationImp.h"
+
+1459864490 /usr/include/root/TObject.h
+	"Rtypes.h"
+	"TStorage.h"
+	"TVersionCheck.h"
+	"Riosfwd.h"
+	<stdarg.h>
+	"TBuffer.h"
+
+1459864490 /usr/include/root/Rtypes.h
+	"RConfig.h"
+	"DllImport.h"
+	"Rtypeinfo.h"
+	<stdio.h>
+	<string.h>
+	<snprintf.h>
+	<strlcpy.h>
+	<atomic>
+	"TGenericClassInfo.h"
+
+1459864490 /usr/include/root/RConfig.h
+	"RVersion.h"
+	<standards.h>
+	<stdlib.h>
+	<features.h>
+	<AvailabilityMacros.h>
+	<TargetConditionals.h>
+
+1459864490 /usr/include/root/RVersion.h
+
+1459864490 /usr/include/root/DllImport.h
+
+1459864490 /usr/include/root/Rtypeinfo.h
+	"RConfig.h"
+	<typeinfo>
+	<typeinfo>
+
+1459864490 /usr/include/root/snprintf.h
+	"RConfig.h"
+	<stdio.h>
+	<stdarg.h>
+
+1459864490 /usr/include/root/strlcpy.h
+	"RConfig.h"
+	<unistd.h>
+	<sys/types.h>
+
+1459864490 /usr/include/root/TGenericClassInfo.h
+	<vector>
+	"TSchemaHelper.h"
+
+1459864490 /usr/include/root/TSchemaHelper.h
+	"Rtypes.h"
+	<string>
+
+1459864490 /usr/include/root/TStorage.h
+	"Rtypes.h"
+
+1459864490 /usr/include/root/TVersionCheck.h
+	"RVersion.h"
+
+1459864490 /usr/include/root/Riosfwd.h
+	"RConfig.h"
+	<iostream>
+	<iosfwd>
+
+1459864490 /usr/include/root/TBuffer.h
+	"TObject.h"
+	<typeinfo>
+
+1459864490 /usr/include/root/TQObject.h
+	"TString.h"
+	"TQClass.h"
+
+1459864490 /usr/include/root/TString.h
+	<string.h>
+	<stdio.h>
+	"Riosfwd.h"
+	"TMathBase.h"
+	<stdarg.h>
+	<string>
+
+1459864490 /usr/include/root/TMathBase.h
+	"Rtypes.h"
+	<cstdlib>
+	<cmath>
+
+1459864490 /usr/include/root/TQClass.h
+	"TQObject.h"
+	"TClass.h"
+
+1459864490 /usr/include/root/TClass.h
+	"TDictionary.h"
+	"TString.h"
+	"TObjArray.h"
+	"TObjString.h"
+	<map>
+	<string>
+	<atomic>
+	"ThreadLocalStorage.h"
+
+1459864490 /usr/include/root/TDictionary.h
+	"TNamed.h"
+	"Property.h"
+	"ESTLType.h"
+
+1459864490 /usr/include/root/TNamed.h
+	"TObject.h"
+	"TString.h"
+
+1459864490 /usr/include/root/Property.h
+
+1459864490 /usr/include/root/ESTLType.h
+
+1459864490 /usr/include/root/TObjArray.h
+	"TSeqCollection.h"
+	<iterator>
+
+1459864490 /usr/include/root/TSeqCollection.h
+	"TCollection.h"
+
+1459864490 /usr/include/root/TCollection.h
+	"TObject.h"
+	"TIterator.h"
+	"TString.h"
+
+1459864490 /usr/include/root/TIterator.h
+	"Rtypes.h"
+
+1459864490 /usr/include/root/TObjString.h
+	"TObject.h"
+	"TString.h"
+
+1459864490 /usr/include/root/ThreadLocalStorage.h
+	"RConfig.h"
+	"RConfigure.h"
+	<assert.h>
+	<pthread.h>
+	<assert.h>
+	<pthread.h>
+
+1459864489 /usr/include/root/RConfigure.h
+
+1459864490 /usr/include/root/TApplicationImp.h
+	"TString.h"
+
+1459864491 /usr/include/root/TCanvas.h
+	"TPad.h"
+	"TAttCanvas.h"
+	"TVirtualX.h"
+	"TString.h"
+	"TCanvasImp.h"
+
+1459864491 /usr/include/root/TPad.h
+	"TVirtualPad.h"
+	"TAttBBox2D.h"
+	"TPoint.h"
+	"GuiTypes.h"
+
+1459864490 /usr/include/root/TVirtualPad.h
+	"TAttPad.h"
+	"TVirtualX.h"
+	"TString.h"
+	"Buttons.h"
+	"TQObject.h"
+
+1459864490 /usr/include/root/TAttPad.h
+	"Rtypes.h"
+
+1459864490 /usr/include/root/TVirtualX.h
+	<utility>
+	<vector>
+	"TNamed.h"
+	"TAttLine.h"
+	"TAttFill.h"
+	"TAttText.h"
+	"TAttMarker.h"
+	"GuiTypes.h"
+
+1459864490 /usr/include/root/TAttLine.h
+	"Rtypes.h"
+	"Riosfwd.h"
+
+1459864490 /usr/include/root/TAttFill.h
+	"Rtypes.h"
+	"Riosfwd.h"
+
+1459864490 /usr/include/root/TAttText.h
+	"Rtypes.h"
+	"Riosfwd.h"
+
+1459864490 /usr/include/root/TAttMarker.h
+	"Rtypes.h"
+	"Riosfwd.h"
+
+1459864490 /usr/include/root/GuiTypes.h
+	"Rtypes.h"
+
+1459864490 /usr/include/root/Buttons.h
+
+1459864490 /usr/include/root/TAttBBox2D.h
+	"GuiTypes.h"
+	"Rtypes.h"
+
+1459864490 /usr/include/root/TPoint.h
+	"Rtypes.h"
+
+1459864491 /usr/include/root/TAttCanvas.h
+	"Rtypes.h"
+
+1459864490 /usr/include/root/TCanvasImp.h
+	"Rtypes.h"
+
+1459864491 /usr/include/root/TEllipse.h
+	"TObject.h"
+	"TAttLine.h"
+	"TAttFill.h"
+	"TAttBBox2D.h"
+	"TPoint.h"
+	"GuiTypes.h"
+
+1510419810 source:/home/us3r/devel/Candc++/puissanceN/init.cpp
+	<time.h>
+	"game.h"
+	"video.h"
+	"AI.h"
+	<SDL_render.h>
+	<string.h>
+
+1459864491 /usr/include/root/TLine.h
+	"TObject.h"
+	"TAttLine.h"
+	"TAttBBox2D.h"
+	"TPoint.h"
+	"GuiTypes.h"
+
+1510416987 source:/home/us3r/devel/Candc++/puissanceN/main.cpp
+	<stdio.h>
+	<stdlib.h>
+	"game.h"
+	"video.h"
+
+1510324623 /home/us3r/devel/Candc++/puissanceN/main.h
+	"game.h"
+	"video.h"
+
+1510419667 source:/home/us3r/devel/Candc++/puissanceN/AI.cpp
+	<stdio.h>
+	<stdlib.h>
+	"game.h"
+
+1510408041 /home/us3r/devel/Candc++/puissanceN/AI.h
+
+1459864490 /usr/include/root/TROOT.h
+	"TDirectory.h"
+	"TList.h"
+	<atomic>
+
+1459864490 /usr/include/root/TDirectory.h
+	"TNamed.h"
+	"TList.h"
+	"TDatime.h"
+	"TUUID.h"
+
+1459864490 /usr/include/root/TList.h
+	"TSeqCollection.h"
+	"TString.h"
+	<iterator>
+
+1459864490 /usr/include/root/TDatime.h
+	"Rtypes.h"
+
+1459864490 /usr/include/root/TUUID.h
+	"Rtypes.h"
+
+1457647654 /usr/include/SDL2/SDL.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<iconv.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_config.h
+	"SDL_platform.h"
+
+1457647654 /usr/include/SDL2/SDL_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/begin_code.h
+
+1457647654 /usr/include/SDL2/close_code.h
+
+1457647654 /usr/include/SDL2/SDL_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mmintrin.h>
+	<mm3dnow.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_pixels.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1457647654 /usr/include/SDL2/SDL_scancode.h
+	"SDL_stdinc.h"
+
+1457647654 /usr/include/SDL2/SDL_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1457647654 /usr/include/SDL2/SDL_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1457647654 /usr/include/SDL2/SDL_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1510355818 source:/home/us3r/devel/Candc++/puissanceN/video.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"game.h"
+	"video.h"
+	<SDL_render.h>
+
+1510416650 source:/home/us3r/devel/Candc++/puissanceN/AIutils.cpp
+	<stdio.h>
+	<stdlib.h>
+	"game.h"
+
