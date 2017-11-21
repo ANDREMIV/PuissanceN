@@ -12,7 +12,8 @@ struct player{
 int isHuman;
 enum TOKENTYPE arms;
 char name[32];
-int (*AI)();
+int (*AI)(const struct Game G);
+int P;/*nb move to predict for AI*/
 };
 
 struct Game{ ///Holds the necessary info to play a particular game
@@ -24,11 +25,13 @@ int playerturn; //0 -> player0 turn, 1 -> player1 turn
 struct player players[2]; //player0 is players[0] and so on
 };
 
-int AddTokentoGrid(int row,TOKEN value);
+int AddTokentoGrid(int row,TOKEN value, struct Game *G);
 int AskPlayerRow();//return 0 means an error, otherwise it means the Row chosen
-int LinesFree(int choice);
-TOKEN lastwin(int last_row); //return WINNER OR EMPTY
-int remove_token_to_row(int row);
+int LinesFree(int row, const struct Game G);
+TOKEN lastwin(int last_row,const struct Game G); //return WINNER OR EMPTY
+int remove_token_to_row(int row, struct Game *G);
+int IsGridFull(const struct Game G);
+int NextTurn(struct Game *G);
 
 extern struct Game G;
 extern struct VideoHandle V;

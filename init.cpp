@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include "game.h"
 #include "video.h"
@@ -6,18 +8,24 @@
 #include <string.h>
 
 struct Game G;
+extern int Argv;
+extern char **Args;
 
 void initgame()
 {
     int i,j;
     srand(time(NULL));
     G.playerturn=rand()%2;
-    G.rownb=7;
-    G.linenb=6;
-    G.N=4;
+    G.rownb=strtol(Args[2],NULL,10);
+    G.linenb=strtol(Args[3],NULL,10);
+    G.N=strtol(Args[1],NULL,10);
     G.tokensIn=0;
-    G.players[0].isHuman=rand()%2;
-    G.players[1].isHuman=!G.players[0].isHuman;
+    /*G.players[0].isHuman=rand()%2;
+    G.players[1].isHuman=!G.players[0].isHuman;*/
+    G.players[0].isHuman=0;
+    G.players[0].P=2;
+    G.players[1].P=2;
+    G.players[1].isHuman=0;
     G.players[0].arms=rand()%2;
     G.players[1].arms=(int)!G.players[0].arms;
     G.Array_state= (TOKEN **) calloc(G.rownb,sizeof(TOKEN*));
@@ -29,8 +37,8 @@ void initgame()
     for(j=0;j<G.linenb;j++)
     G.Array_state[i][j]=EMPTY;
 
-    if(!G.players[0].isHuman)G.players[0].AI=&brutAI;
-    if(!G.players[1].isHuman)G.players[1].AI=&brutAI;
+    G.players[0].AI=&brutAI;
+    G.players[1].AI=&brutAI;
 
     if(!G.players[0].isHuman)strcpy(G.players[0].name, "sentient machine");
     if(G.players[0].isHuman)strcpy(G.players[0].name, "human");
@@ -42,8 +50,8 @@ struct VideoHandle V;
 
 void initvideo()
 {
-V.xVscreen=640;
-V.yVscreen=480;
+V.xVscreen=strtol(Args[4],NULL,10);
+V.yVscreen=strtol(Args[5],NULL,10);
 V.xstep = V.xVscreen/(G.rownb)+0.0;
 V.ystep = V.yVscreen/(G.linenb+0.0);
 

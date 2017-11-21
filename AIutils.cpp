@@ -3,18 +3,18 @@
 #include "game.h"
 
 ///returned pointer must be freed even if nb_move is 0 !
-int* find_possible_moves(int* nb_move)//return pointer to an index of possible moves
+int* find_possible_moves(int* nb_move, const struct Game G)//return pointer to an index of possible moves
 {
     int nb=0;
     int i,row_nb=G.rownb;
     for(i=0;i<row_nb;i++)
-            if(LinesFree(i+1))
+            if(LinesFree(i+1,G))
                 nb++;
     int* ptr=(int*) malloc(nb*sizeof(int));
     int a=0;
     if(nb)
     for(i=0;i<row_nb;i++)
-            if(LinesFree(i+1))
+            if(LinesFree(i+1,G))
                 ptr[i-a]=i+1;
             else ++a;
 
@@ -23,12 +23,12 @@ int* find_possible_moves(int* nb_move)//return pointer to an index of possible m
 }
 
 ///return next possible row to play after previous row
-int nextmove(int prow)
+int nextmove(int prow,const struct Game G)
 {
     int i,row_nb=G.rownb;
 
         for(i=prow;i<row_nb;i++)
-            if(LinesFree(i+1))
+            if(LinesFree(i+1,G))
                 return i+1;
 
     return 0;

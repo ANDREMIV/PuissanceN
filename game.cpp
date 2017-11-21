@@ -4,26 +4,25 @@
 #include "video.h"
 #include <SDL_events.h>
 
-extern struct Game G;
-extern struct VideoHandle V;
 
-AddTokentoGrid(int row,TOKEN value) //it is assumed that the row is not full
+AddTokentoGrid(int row,TOKEN value, struct Game *G)
+//it is assumed that the row is not full
 {
-int i,row_nb=G.rownb,line_nb=G.linenb;
-for(i=0;i<line_nb&&G.Array_state[row-1][i]!=EMPTY;i++);
-G.Array_state[row-1][i]=value;
+int i,row_nb=G->rownb,line_nb=G->linenb;
+for(i=0;i<line_nb&&G->Array_state[row-1][i]!=EMPTY;i++);
+G->Array_state[row-1][i]=value;
 }
 
-remove_token_to_row(int row)
+remove_token_to_row(int row, struct Game *G)
 {
-int i,line_nb=G.linenb;
-for(i=0;i<line_nb&&G.Array_state[row-1][i]!=EMPTY;i++);
+int i,line_nb=G->linenb;
+for(i=0;i<line_nb&&G->Array_state[row-1][i]!=EMPTY;i++);
 if(i>0)i--;
-G.Array_state[row-1][i]=EMPTY;
+G->Array_state[row-1][i]=EMPTY;
 }
 
 //return number of tokens we could put onto the row
-int LinesFree(int row)
+int LinesFree(int row, const struct Game G)
 {
     int i,line_nb=G.linenb;
     for(i=0;i<line_nb&&G.Array_state[row-1][i]!=EMPTY;i++);
@@ -66,17 +65,17 @@ int AskPlayerRow()
     SDL_FlushEvents(SDL_FIRSTEVENT, SDL_LASTEVENT);
 }
 
-    if(LinesFree(row))
+    if(LinesFree(row,G))
     break;
     printf("\n\nRow is full !");
     }
     return row;
     }
     else
-    return G.players[G.playerturn].AI();
+    return G.players[G.playerturn].AI(G);
 }
 
-TOKEN lastwin(int last_row) //return WINNER OR EMPTY
+TOKEN lastwin(int last_row,const struct Game G) //return WINNER OR EMPTY
 {/// CAREFULL EMPTY IS NOT ZERO
     //checks if the global grid contain a win
     int i,j,k,row_nb=G.rownb,line_nb=G.linenb
@@ -92,7 +91,7 @@ TOKEN lastwin(int last_row) //return WINNER OR EMPTY
             int nb;
             nb=1;
             ///CHECK UP (not needed)
-            /*for(k=1;k<nb_to_win&&j+k<line_nb&&G.Array_state[i][j+k]==t;k++);
+            /*for(k=1;k<nb_to_win&&j+k<line_nb&&G->Array_state[i][j+k]==t;k++);
             nb+=--k;
             if(nb>=nb_to_win)return t;*/
             ///CHECK DOWN
@@ -133,18 +132,13 @@ TOKEN lastwin(int last_row) //return WINNER OR EMPTY
     return EMPTY;
 }
 
-displayWinner()
+NextTurn(struct Game *G)
 {
-printf("\n\n\n\007The winner is: %s !\n\n",G.players[G.playerturn].name);
+G->playerturn=!G->playerturn;
+G->tokensIn++;
 }
 
-NextTurn()
-{
-G.playerturn=!G.playerturn;
-G.tokensIn++;
-}
-
-IsGridFull()
+IsGridFull(const struct Game G)
 {
     if(G.tokensIn==G.linenb*G.rownb)
     return 1;

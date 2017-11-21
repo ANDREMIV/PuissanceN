@@ -2,31 +2,32 @@
 #include <stdlib.h>
 #include "game.h"
 
-int* find_possible_moves(int* nb_move);
-int nextmove(int prow);
+int* find_possible_moves(int* nb_move,const struct Game G);
+int nextmove(int prow,const struct Game G);
 int choosemaxrow(int *rs,int nb_pmov);
 
 
-int randomAI()
+int randomAI(const struct Game G)
 {
+
     int row_nb=G.rownb;
     int choice;
     while(1)
     {
         choice=rand()%row_nb+1;
-        if(LinesFree(choice))return choice;
+        if(LinesFree(choice,G))return choice;
     }
 
 }
 
-int brutAI()
+int brutAI(const struct Game G)
 {
-    int nbE=8; /*nb stage*/ int X=0; /*interruption flag of win*/
+    int nbE=G.players[G.playerturn].P; /*nb stage*/ int X=0; /*interruption flag of win*/
     int C; /*choice of row*/ int rownb=G.rownb;
     { //prevents nbE to be superior than the number of tokens that can be put
         int i;int j=0;
         for(i=0;i<rownb;i++)
-            j+=LinesFree(i+1);
+            j+=LinesFree(i+1,G);
         if(nbE>j)nbE=j;
     }
 
@@ -35,7 +36,7 @@ int brutAI()
     int* AEF = (int*) calloc(nbE,sizeof(int)); //scores first time set flag ?
     int E=-1; //current stage, level
     int rowsFreeNb;
-    int* rows0=find_possible_moves(&rowsFreeNb);
+    int* rows0=find_possible_moves(&rowsFreeNb,G);
 
     int* scores0 = (int*) calloc(rowsFreeNb,sizeof(int));
     int S0i=0; //index for scores0
@@ -57,14 +58,14 @@ int brutAI()
     }
     else
     {
-        C=nextmove(LC[E+1]);
+        C=nextmove(LC[E+1],G);
         if(C) //Still some move to play ?
         {
             //Y so add token and go up
             if((E+1)%2) //add token according to the right color
-            AddTokentoGrid(C,G.players[!G.playerturn].arms);
+            AddTokentoGrid(C,G.players[!G.playerturn].arms,&G);
             else
-            AddTokentoGrid(C,G.players[G.playerturn].arms);
+            AddTokentoGrid(C,G.players[G.playerturn].arms,&G);
 
 
             /*if(G&&LC[0]==2&&LC[1]==6){display_Ggrid();///debug
@@ -81,7 +82,7 @@ int brutAI()
 
             E++;
             LC[E]=C;
-            if(lastwin(C)!=EMPTY) //someone won
+            if(lastwin(C,G)!=EMPTY) //someone won
             {
                 X=1;
                 mS[E]=1;
@@ -102,7 +103,7 @@ int brutAI()
     }
 
     branch_end:
-    remove_token_to_row(LC[E]);
+    remove_token_to_row(LC[E],&G);
     //display_Ggrid();Sleep(40);
     AEF[E]=0;
     E--;
