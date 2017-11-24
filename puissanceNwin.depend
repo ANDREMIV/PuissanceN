@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1511221054 source:d:\devel\c\puissancen\aiutils.cpp
+1511475217 source:d:\devel\c\puissancen\aiutils.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
 
 1511221182 d:\devel\c\puissancen\game.h
 
-1511222350 source:d:\devel\c\puissancen\game.cpp
+1511473516 source:d:\devel\c\puissancen\game.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
@@ -333,13 +333,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1511222646 source:d:\devel\c\puissancen\main.cpp
+1511473473 source:d:\devel\c\puissancen\main.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
 	"video.h"
 
-1511222350 source:d:\devel\c\puissancen\video.cpp
+1511385728 source:d:\devel\c\puissancen\video.cpp
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -347,12 +347,12 @@
 	"video.h"
 	<SDL_render.h>
 
-1511221397 source:d:\devel\c\puissancen\ai.cpp
+1511477336 source:d:\devel\c\puissancen\ai.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
 
-1511222774 source:d:\devel\c\puissancen\init.cpp
+1511472580 source:d:\devel\c\puissancen\init.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>

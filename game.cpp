@@ -4,7 +4,6 @@
 #include "video.h"
 #include <SDL_events.h>
 
-
 AddTokentoGrid(int row,TOKEN value, struct Game *G)
 //it is assumed that the row is not full
 {

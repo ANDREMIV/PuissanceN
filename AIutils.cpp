@@ -3,7 +3,8 @@
 #include "game.h"
 
 ///returned pointer must be freed even if nb_move is 0 !
-int* find_possible_moves(int* nb_move, const struct Game G)//return pointer to an index of possible moves
+int* find_possible_moves(int* nb_move, const struct Game G)
+//returned pointer stores the row of the ieme possible row
 {
     int nb=0;
     int i,row_nb=G.rownb;

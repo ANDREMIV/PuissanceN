@@ -8,7 +8,7 @@ int displayWinner();
 
 int Argv; char** Args;
 
-/*prgm N nbrow nbline xscreen yscreen*/
+/*prgm N nbrow nbline xscreen yscreen human0? human1? redplayer0? */
 
 int main(int argv, char** args)
 {
@@ -19,7 +19,7 @@ int main(int argv, char** args)
     printgrid();
 
     while(1){
-    if(IsGridFull(G))break;
+    if(IsGridFull(G)){G.playerturn=-1;/*to notify a draw game*/break;}
     int row=AskPlayerRow();
     AddTokentoGrid(row,G.players[G.playerturn].arms,&G);
     SDL_Delay(10);
@@ -32,28 +32,21 @@ int main(int argv, char** args)
     NextTurn(&G);
     }
 
-
-
-
     SDL_Event e;
-
     while (1)
         {
         SDL_PollEvent(&e);
     if (e.type == SDL_KEYDOWN)
-    {
         if(e.key.keysym.sym==SDLK_ESCAPE)
-        {atexit(SDL_Quit);exit(0);}
-
-
-    }
+        break;
     if (e.type == SDL_QUIT)
-    {
-        atexit(SDL_Quit);exit(0);
-    }
+        break;
 }
+
     SDL_DestroyRenderer(V.renderer);
     SDL_DestroyWindow(V.window);
+    atexit(SDL_Quit);
 
-    return 0;
+
+    return G.playerturn; //return which player has won -1 for draw
 }

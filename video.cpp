@@ -33,7 +33,7 @@ SDL_RenderPresent(V.renderer);
 displayWinner()
 {
     if(G.playerturn)
-printf("\n\n\n\007The winner is: player1 !\n\n"/*,G.players[G.playerturn].name*/);
+printf("\n\n\n\007The winner is: %s !\n\n",G.players[G.playerturn].name);
 else
-printf("\n\n\n\007The winner is: player0 !\n\n"/*,G.players[G.playerturn].name*/);
+printf("\n\n\n\007The winner is: %s !\n\n",G.players[G.playerturn].name);
 }

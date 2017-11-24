@@ -22,12 +22,14 @@ void initgame()
     G.tokensIn=0;
     /*G.players[0].isHuman=rand()%2;
     G.players[1].isHuman=!G.players[0].isHuman;*/
-    G.players[0].isHuman=0;
+    G.players[0].isHuman=strtol(Args[6],NULL,10);
+    G.players[1].isHuman=strtol(Args[7],NULL,10);
     G.players[0].P=2;
-    G.players[1].P=2;
-    G.players[1].isHuman=0;
-    G.players[0].arms=rand()%2;
+    G.players[1].P=6;
+    if(strtol(Args[8],NULL,10)) G.players[0].arms=RED; else G.players[0].arms=YELLOW;
     G.players[1].arms=(int)!G.players[0].arms;
+    /*G.players[0].arms=rand()%2;
+    G.players[1].arms=(int)!G.players[0].arms;*/
     G.Array_state= (TOKEN **) calloc(G.rownb,sizeof(TOKEN*));
 
     for(i=0;i<G.rownb;i++)
