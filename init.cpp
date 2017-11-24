@@ -24,8 +24,8 @@ void initgame()
     G.players[1].isHuman=!G.players[0].isHuman;*/
     G.players[0].isHuman=strtol(Args[6],NULL,10);
     G.players[1].isHuman=strtol(Args[7],NULL,10);
-    G.players[0].P=2;
-    G.players[1].P=6;
+    G.players[0].P=4;
+    G.players[1].P=4;
     if(strtol(Args[8],NULL,10)) G.players[0].arms=RED; else G.players[0].arms=YELLOW;
     G.players[1].arms=(int)!G.players[0].arms;
     /*G.players[0].arms=rand()%2;
