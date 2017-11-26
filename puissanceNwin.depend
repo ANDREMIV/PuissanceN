@@ -347,12 +347,12 @@
 	"video.h"
 	<SDL_render.h>
 
-1511477336 source:d:\devel\c\puissancen\ai.cpp
+1511530595 source:d:\devel\c\puissancen\ai.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
 
-1511484841 source:d:\devel\c\puissancen\init.cpp
+1511530979 source:d:\devel\c\puissancen\init.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
