@@ -26,6 +26,11 @@ int randomAI(const struct Game G)
 
 }
 
+int brutAIV2(const struct Game G)
+{
+        return randomAI(G);
+}
+
 int brutAI(const struct Game G)
 {
     int nbE=G.players[G.playerturn].P; /*nb stage*/
