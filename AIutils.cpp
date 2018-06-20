@@ -23,7 +23,7 @@ int* find_possible_moves(int* nb_move, const struct Game G)
     return ptr;
 }
 
-///return next possible row to play after previous row
+///return next possible row to play after previous row or 0 if no more row to play/win
 int nextmove(int prow,const struct Game G)
 {
     int i,row_nb=G.rownb;
@@ -59,4 +59,27 @@ choosemaxrow(int *rs,int nb_pmov)
                     return imax;
 }
 
+dchoosemaxrow(double *rs,int nb_pmov)
+{
+    double *row_scores=rs;
+    int i; int lmax=*row_scores; int imax=0; int occ=0;
+                    for(i=0;i<nb_pmov;i++) ///Choose row with max score
+                        if(row_scores[i]>lmax)
+                        {
+                            lmax=row_scores[i];
+                            imax=i;
+                            occ=0;
+                        }
+                        else if(row_scores[i]==lmax)
+                            occ++;
+                    if(occ) ///Choose randomly between max score rows
+                        {
+                        int a=rand()%(occ+1);
+                        for(i=0;i<nb_pmov;i++)
+                        if(row_scores[i]==lmax)
+                        if(a)a--;
+                        else return i;
+                        }
+                    return imax;
+}
 

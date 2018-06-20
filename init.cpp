@@ -39,8 +39,8 @@ void initgame()
     for(j=0;j<G.linenb;j++)
     G.Array_state[i][j]=EMPTY;
 
-    G.players[0].AI=&brutAI;
-    G.players[1].AI=&brutAI;
+    G.players[0].AI=&brutAIV2;
+    G.players[1].AI=&brutAIV2;
 
     if(!G.players[0].isHuman)strcpy(G.players[0].name, "sentient machine");
     if(G.players[0].isHuman)strcpy(G.players[0].name, "human");
@@ -50,7 +50,7 @@ void initgame()
 
 struct VideoHandle V;
 
-void initvideo()
+int initvideo()
 {
 V.xVscreen=strtol(Args[4],NULL,10);
 V.yVscreen=strtol(Args[5],NULL,10);

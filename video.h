@@ -17,6 +17,6 @@ double xstep, ystep;
 };
 
 void initgame();
-void initvideo();
+int initvideo();
 void printgrid();
 int PrintLastToken(int row);
