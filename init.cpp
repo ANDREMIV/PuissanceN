@@ -8,6 +8,7 @@
 #include <string.h>
 
 struct Game G;
+struct Game Gn;
 extern int Argv;
 extern char **Args;
 
@@ -46,6 +47,11 @@ void initgame()
     if(G.players[0].isHuman)strcpy(G.players[0].name, "human");
     if(!G.players[1].isHuman)strcpy(G.players[1].name, "sentient machine");
     if(G.players[1].isHuman)strcpy(G.players[1].name, "human");
+
+    Gn=G;
+    Gn.Array_state= (TOKEN **) calloc(Gn.rownb,sizeof(TOKEN*));
+    for(i=0;i<Gn.rownb;i++)
+    Gn.Array_state[i]= (TOKEN *) calloc(Gn.linenb,sizeof(TOKEN));
 }
 
 struct VideoHandle V;

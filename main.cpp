@@ -22,7 +22,7 @@ int main(int argv, char** args)
     if(IsGridFull(G)){G.playerturn=-1;/*to notify a draw game*/break;}
     int row=AskPlayerRow();
     AddTokentoGrid(row,G.players[G.playerturn].arms,&G);
-    SDL_Delay(10);
+    SDL_Delay(0);
     PrintLastToken(row);
     if(lastwin(row,G)!=TOKEN(EMPTY))
         {

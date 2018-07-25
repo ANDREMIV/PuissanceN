@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "game.h"
+#include "math.h"
+#define WINSCORE 100000000
+#define WINSCORE_MODULATION 1000000
+#define THREATSCORE 1000
 
 ///Features to be implemented
 ///When loosing, do loose in the longest time
@@ -13,15 +17,145 @@ int nextmove(int prow,const struct Game G);
 int choosemaxrow(int *rs,int nb_pmov);
 int dchoosemaxrow(double *rs,int nb_pmov);
 
-double scoreFunction(int pmov,struct Game G)//return score for a particular row
+double scoreFunction(int pmov,const struct Game G)//return score for a particular row
 {
     //return (double)(rand()%10);
+
     if(lastwin(pmov,G)!=EMPTY)
-        return 1.0;
-    else return 0.0;
+        return WINSCORE;
+    //return (double)(rand()%2);
+
+
+    ///SCORE FUNCTION ADAPTED FROM LAST WIN
+    double score=0;
+/*
+    /// CAREFULL EMPTY IS NOT ZERO
+    //checks if the global grid contain a win
+    int i,j,k,row_nb=G.rownb,line_nb=G.linenb
+    ,nb_to_win=G.N;
+
+    //last token and init i and j
+    for(j=0;j<line_nb&&G.Array_state[pmov-1][j]!=TOKEN(EMPTY);j++);
+    //if(--j<0)return EMPTY;
+    TOKEN t=G.Array_state[pmov-1][j];
+    t=!t;
+    i=pmov-1;
+    ///NOW i is row-1 and j is line-1
+
+
+            double d,g,nb,nbp;
+            int iprev;
+            d=0;
+            g=0;
+            ///CHECK UP
+            for(k=1;k<nb_to_win&&j+k<line_nb&&G.Array_state[i][j+k]!=t;k++);
+            d+=--k;
+            ///CHECK DOWN
+            for(k=1;k<nb_to_win&&j-k>=0&&G.Array_state[i][j-k]!=t;k++);
+            g+=--k;
+
+            d=0;
+            g=0;
+            ///CHECK RIGHT UP
+            for(k=1;k<nb_to_win&&j+k<line_nb&&i+k<row_nb&&G.Array_state[i+k][j+k]!=t;k++);
+            d+=--k;
+            ///CHECK LEFT DOWN
+            for(k=1;k<nb_to_win&&j-k>=0&&i-k>=0&&G.Array_state[i-k][j-k]!=t;k++);
+            g+=--k;
+
+            ///Check for threats
+            if(g+d+1>=nb_to_win)
+            {
+            for(nbp=0,k=-g;k<d+1&&G.Array_state[i+k][j+k]!=EMPTY;k++)nbp++;
+            iprev=k; //forcely G.Array_state[i-k][j] is empty
+            if(nbp==nb_to_win-1)if(j+k)if(G.Array_state[i+iprev][j-1+k]==EMPTY)score+=THREATSCORE;
+            if(k<d)
+            {
+            k++;
+            for(nb=0;k<d+1;k++)
+            if(G.Array_state[i+k][j+k]==EMPTY)
+            {
+            if(nb+nbp>=nb_to_win-1)if(j+k)if(G.Array_state[i+iprev][j-1+k]==EMPTY)score+=THREATSCORE;
+            iprev=k;nbp=nb;nb=0;
+            }
+            else nb++;
+
+            if(nb+nbp>=nb_to_win-1)if(j+k)if(G.Array_state[i+iprev][j-1+k]==EMPTY)score+=THREATSCORE;
+            }
+            }
+
+
+
+
+            d=0;
+            g=0;
+            ///CHECK RIGHT
+            for(k=1;k<nb_to_win&&i+k<row_nb&&G.Array_state[i+k][j]!=t;k++);
+            d+=--k;
+            ///CHECK LEFT
+            for(k=1;k<nb_to_win&&i-k>=0&&G.Array_state[i-k][j]!=t;k++);
+            g+=--k;
+
+            ///Check for threats
+            if(g+d+1>=nb_to_win)
+            {
+            for(nbp=0,k=-g;k<d+1&&G.Array_state[i+k][j]!=EMPTY;k++)nbp++;
+            iprev=k; //forcely G.Array_state[i-k][j] is empty
+            if(nbp==nb_to_win-1)if(j)if(G.Array_state[i+iprev][j-1]==EMPTY)score+=THREATSCORE;
+            if(k<d)
+            {
+            k++;
+            for(nb=0;k<d+1;k++)
+            if(G.Array_state[i+k][j]==EMPTY)
+            {
+            if(nb+nbp>=nb_to_win-1)if(j)if(G.Array_state[i+iprev][j-1]==EMPTY)score+=THREATSCORE;
+            iprev=k;nbp=nb;nb=0;
+            }
+            else nb++;
+
+            if(nb+nbp>=nb_to_win-1)if(j)if(G.Array_state[i+iprev][j-1]==EMPTY)score+=THREATSCORE;
+            }
+            }
+
+            d=0;
+            g=0;
+            ///CHECK RIGHT DOWN
+            for(k=1;k<nb_to_win&&j-k>=0&&i+k<row_nb&&G.Array_state[i+k][j-k]!=t;k++);
+            d+=--k;
+            ///CHECK LEFT UP
+            for(k=1;k<nb_to_win&&j+k<line_nb&&i-k>=0&&G.Array_state[i-k][j+k]!=t;k++);
+            g+=--k;
+
+            ///Check for threats
+            if(g+d+1>=nb_to_win)
+            {
+            for(nbp=0,k=-g;k<d+1&&G.Array_state[i+k][j-k]!=EMPTY;k++)nbp++;
+            iprev=k; //forcely G.Array_state[i-k][j] is empty
+            if(nbp==nb_to_win-1)if(j-k)if(G.Array_state[i+iprev][j-1-k]==EMPTY)score+=THREATSCORE;
+            if(k<d)
+            {
+            k++;
+            for(nb=0;k<d+1;k++)
+            if(G.Array_state[i+k][j-k]==EMPTY)
+            {
+            if(nb+nbp>=nb_to_win-1)if(j-k)if(G.Array_state[i+iprev][j-1-k]==EMPTY)score+=THREATSCORE;
+            iprev=k;nbp=nb;nb=0;
+            }
+            else nb++;
+
+            if(nb+nbp>=nb_to_win-1)if(j-k)if(G.Array_state[i+iprev][j-1-k]==EMPTY)score+=THREATSCORE;
+            }
+            }*/
+
+
+    //score+=pmov;
+    //score += rand()%11-5;
+
+    return score;
+
 }
 
-int randomAI(struct Game G)
+int randomAI(const struct Game G)
 {
 
     int row_nb=G.rownb;
@@ -34,13 +168,14 @@ int randomAI(struct Game G)
 
 }
 
-int brutAIV2(struct Game G)
+int brutAIV2(const struct Game G)
 {
     int X=0; /*interruption flag for alpha beta pruning*/
     int nbE=G.players[G.playerturn].P; /*nb stage/etage/level*/
     if(nbE==0)//random AI
         return randomAI(G);
-    int C; /*choice of row*/ int rownb=G.rownb;
+    int C; //choice of row
+     int rownb=G.rownb;
     {
         //prevents nbE to be superior than the number of tokens that can be put
         int i;
@@ -84,21 +219,26 @@ int brutAIV2(struct Game G)
 
             //if E=0 then level = 1, so place a computer token
             if(E%2) //add token according to the right color
-                AddTokentoGrid(C,G.players[!G.playerturn].arms,&G);//add friendly token
+                AddTokentoGrid(C,G.players[!G.playerturn].arms,&G);//add opponent token
             else
-                AddTokentoGrid(C,G.players[G.playerturn].arms,&G);//add opponent token
+                AddTokentoGrid(C,G.players[G.playerturn].arms,&G);//add friendly token
 
-            if(E==0)pS[0]=scoreFunction(C,G);//Init first pre-score
+            double movScore=scoreFunction(C,G);
+            if(movScore==WINSCORE)movScore-=E*WINSCORE_MODULATION; //rapid win is preferred
+
+
+            if(E==0)pS[0]=movScore;//Init first pre-score
             else //E>0
             if(E%2) //modify pre-scores accordingly
-                pS[E]=pS[E-1]-scoreFunction(C,G);//we substract opponent score from our score
+                pS[E]=pS[E-1]-movScore;//we substract opponent score from our score
             else
-                pS[E]=pS[E-1]+scoreFunction(C,G);//we add friendly score to ours
+                pS[E]=pS[E-1]+movScore;//we add friendly score to ours
 
 
             LC[E]=C; //remember last choice
             if(lastwin(C,G)!=EMPTY) //someone won ?
             { //Y so end branch
+
                 X=1; //win flag set
                 mS[E]=pS[E]; //Pre-score is then the final score value of branch
         //then tell min/max Score of level E+1 is this pre-score
@@ -113,11 +253,8 @@ int brutAIV2(struct Game G)
         {
             if(E==-1) //no more moves to play at all
                 goto get_out;
-            else//"pat/draw/row full configuration"
-                {
-                mS[E]=pS[E]; //Pre-score is then the final score value of branch
-        //then tell min/max Score of level E+1 is this pre-score
-                goto branch_end;}
+            else//no possible move in the branch so get back
+                goto branch_end;
         }
     }
 
@@ -126,20 +263,11 @@ branch_end:
     AEF[E]=0;//unset score of branch because the score will be treated just now and then discarded
     E--; //go down a level
 
-    if(X)//alpha beta or win occurred, no need to check other possibilities in the branch
+    if(X)// win occurred, no need to check other possibilities in the branch
     {
         X=0;//reset flag
         LC[E+1]=rownb;
     }
-
-    /*if((E+1)%2) //alpha beta pruning
-       {if(mS[E]>=mS[E-1]){X=1;//beta cut interruption flag
-        LC[E+1]=rownb;//forces to branch_end again when nextmove will be called
-        }}
-    else
-        if(mS[E]<=mS[E-1]){X=1;//alpha cut interruption flag
-        LC[E+1]=rownb;//forces to branch_end again when nextmove will be called
-        }*/
 
 
     if(E==-1)//So we have our score row
@@ -166,15 +294,15 @@ branch_end:
     if(E<=nbE-3) //reinit all possible moves for higher branches
         LC[E+2]=0;
 
-    ///alpha beta pruning
-    if(E-2>=0)
-    if(AEF[E-2])
+        ///alpha beta pruning
+    if(E-1>=0)
+    if(AEF[E-1])
     if((E+1)%2)
-       {if(mS[E]>=mS[E-2]){X=1;//beta cut interruption flag
+       {if(mS[E+1]<=mS[E-1]){//beta cut interruption flag
         LC[E+1]=rownb;//forces to branch_end again when nextmove will be called
         }}
     else
-        if(mS[E]<=mS[E-2]){X=1;//alpha cut interruption flag
+        if(mS[E+1]>=mS[E-1]){//alpha cut interruption flag
         LC[E+1]=rownb;//forces to branch_end again when nextmove will be called
         }
 
@@ -231,7 +359,7 @@ branch_end:
 
 
 
-int brutAI(struct Game G)
+int brutAI(const struct Game G)
 {
     int nbE=G.players[G.playerturn].P; /*nb stage*/
     if(nbE==0)//random AI

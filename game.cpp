@@ -71,7 +71,11 @@ int AskPlayerRow()
     return row;
     }
     else
-    return G.players[G.playerturn].AI(G);
+    {
+        copyGameState(G,Gn);
+        return G.players[G.playerturn].AI(Gn);
+    }
+
 }
 
 TOKEN lastwin(int last_row,const struct Game G) //return WINNER OR EMPTY
@@ -135,6 +139,14 @@ NextTurn(struct Game *G)
 {
 G->playerturn=!G->playerturn;
 G->tokensIn++;
+}
+
+copyGameState(const struct Game G,struct Game Gn)
+{
+    int i,j;
+    for(i=0;i<G.rownb;i++)
+    for(j=0;j<G.linenb;j++)
+    Gn.Array_state[i][j]=G.Array_state[i][j];
 }
 
 IsGridFull(const struct Game G)

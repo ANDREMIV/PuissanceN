@@ -32,7 +32,9 @@ TOKEN lastwin(int last_row,const struct Game G); //return WINNER OR EMPTY
 int remove_token_to_row(int row, struct Game *G);
 int IsGridFull(const struct Game G);
 int NextTurn(struct Game *G);
+int copyGameState(const struct Game G,struct Game Gn);
 
 extern struct Game G;
+extern struct Game Gn;//game neglected
 extern struct VideoHandle V;
 

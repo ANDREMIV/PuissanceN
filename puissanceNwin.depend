@@ -1,19 +1,19 @@
 # depslib dependency file v1.0
-1529430011 source:d:\devel\c\puissancen\aiutils.cpp
+1529460626 source:d:\devel\c\puissancen\aiutils.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
 
-1511224782 d:\devel\c\puissancen\game.h
+1529820586 d:\devel\c\puissancen\game.h
 
-1511477116 source:d:\devel\c\puissancen\game.cpp
+1529820576 source:d:\devel\c\puissancen\game.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
 	"video.h"
 	<SDL_events.h>
 
-1529439684 d:\devel\c\puissancen\video.h
+1529460626 d:\devel\c\puissancen\video.h
 	"SDL.h"
 
 1394940796 d:\sdl2-2.0.3\i686-w64-mingw32\include\sdl2\sdl.h
@@ -333,7 +333,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1511477073 source:d:\devel\c\puissancen\main.cpp
+1529566055 source:d:\devel\c\puissancen\main.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
@@ -347,12 +347,13 @@
 	"video.h"
 	<SDL_render.h>
 
-1529460049 source:d:\devel\c\puissancen\ai.cpp
+1529822903 source:d:\devel\c\puissancen\ai.cpp
 	<stdio.h>
 	<stdlib.h>
 	"game.h"
+	"math.h"
 
-1529439674 source:d:\devel\c\puissancen\init.cpp
+1529820280 source:d:\devel\c\puissancen\init.cpp
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -362,5 +363,5 @@
 	<SDL_render.h>
 	<string.h>
 
-1529439648 d:\devel\c\puissancen\ai.h
+1529820483 d:\devel\c\puissancen\ai.h
 
